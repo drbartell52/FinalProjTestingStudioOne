@@ -973,6 +973,7 @@ GameObject:
   - component: {fileID: 1664946155}
   - component: {fileID: 1664946154}
   - component: {fileID: 1664946153}
+  - component: {fileID: 1664946157}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -1066,6 +1067,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1664946157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664946152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5493c72116d0eb54ca031e9393e65287, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shirtColor:
+  - {fileID: 2100000, guid: a101e205fc4f272458e8e23bba22e151, type: 2}
+  - {fileID: 2100000, guid: 6d2273122a229904482207cb408223c1, type: 2}
+  shirtSelect: 0
+  shirtCount: 0
 --- !u!1 &2076882309
 GameObject:
   m_ObjectHideFlags: 0
