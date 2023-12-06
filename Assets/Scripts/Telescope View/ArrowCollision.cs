@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Net.Mail;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 public class ArrowCollision: MonoBehaviour
 {
@@ -10,52 +12,43 @@ public class ArrowCollision: MonoBehaviour
     public int amountToChange;
     //Getting Shirt List and Shirt Changing script
     public ShirtList shirtObject;
-    public AudioSource buttonClick;
-    public AudioSource leverSong;
+    [FormerlySerializedAs("ScenedataSo")] public ScenedataSO ScenedataSO;
     
-    private int firstPlay;
-
-    private void Awake()
-    {
-        firstPlay = 0;
-    }
 
     private void OnTriggerEnter(Collider other)
     {
         //On Trigger adding 1 to the int which selects material from list
-        shirtObject.shirtSelect += amountToChange;
-        PlayAudio();
-        firstPlay = 1;
+         ScenedataSO.sceneSelect += amountToChange;
         //Add logic 
         
-        if (shirtObject.shirtSelect < 0)
+        if (ScenedataSO.sceneSelect< 0)
         {
             Debug.Log("Below Zero!!!!");
             //if the shirt select goes below list amount, cycle back to the top of the list
-            shirtObject.shirtSelect = 3;
+            ScenedataSO.sceneSelect = ScenedataSO.sceneCount;
         }
-        else if (shirtObject.shirtSelect >= shirtObject.shirtCount)
+        else if (ScenedataSO.sceneSelect >= ScenedataSO.sceneCount)
         {
-             shirtObject.shirtSelect = 0;
+            ScenedataSO.sceneSelect = 0;
         }
         
             //Running function to change shirt color
             shirtObject.ChangeShirtColor();
     }
 
-    private void PlayAudio()
-    {
-        
-        if(firstPlay == 0)
-        {
-            leverSong.Play();
-        }
-        else
-        {
-            buttonClick.Play(); 
-        }
-       
-        
-    }
+    // private void PlayAudio()
+    // {
+    //     
+    //     if(firstPlay == 0)
+    //     {
+    //         leverSong.Play();
+    //     }
+    //     else
+    //     {
+    //         buttonClick.Play(); 
+    //     }
+    //    
+    //     
+    // }
     
 }
