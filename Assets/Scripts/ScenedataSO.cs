@@ -7,4 +7,5 @@ public class ScenedataSO : ScriptableObject
 {
    public int sceneSelect;
    public int sceneCount;
+   public int currentPop;
 }

@@ -8,6 +8,8 @@ public class LifeCapacity : MonoBehaviour
     [SerializeField] 
     private int maxCapacity;
 
+    public ScenedataSO ScenedataSO;
+
     //Current population
     [SerializeField] 
     private int currentPop;
@@ -39,6 +41,8 @@ public class LifeCapacity : MonoBehaviour
         {
             GrowingPop();
         }
+
+        ScenedataSO.currentPop = currentPop;
     }
 
     private void DyingPop()
