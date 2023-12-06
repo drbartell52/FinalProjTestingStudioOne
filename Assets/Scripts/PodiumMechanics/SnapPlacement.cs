@@ -16,8 +16,8 @@ public class SnapPlacement : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         //Jump should/will be changed to input on Oculus controller
-        if (Input.GetButtonDown("Jump"))
-        {
+        // if (Input.GetButtonDown("Jump"))
+        // {
             //Add tag "Building" To the grabbable building objects
             if (other.CompareTag("Building"))
             {
@@ -35,6 +35,6 @@ public class SnapPlacement : MonoBehaviour
                 //Calls function from the LifeCapacity script to increase max capacity by 50
                 lifeCapacity.IncreaseCapacity();
             }  
-        }
+        // }
     }
 }
