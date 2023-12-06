@@ -1917,7 +1917,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1515377347}
   m_LocalRotation: {x: 0.19355743, y: -0.45904705, z: 0.10320752, w: 0.86090624}
-  m_LocalPosition: {x: 0, y: 0, z: 0.501}
+  m_LocalPosition: {x: 0, y: 0, z: 0.584}
   m_LocalScale: {x: 0.062242236, y: 0.062242236, z: 0.062242236}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1925,7 +1925,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 25.342, y: -56.134, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10.448, y: 2.989}
+  m_AnchoredPosition: {x: -10.571, y: 3.302}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1515377351
@@ -65666,7 +65666,7 @@ GameObject:
   - component: {fileID: 4801489491370342049}
   - component: {fileID: 6069127045308559376}
   m_Layer: 0
-  m_Name: TV Desk
+  m_Name: Population Visualizer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
