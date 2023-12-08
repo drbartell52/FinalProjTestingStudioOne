@@ -28,11 +28,11 @@ public class SnapPlacement : MonoBehaviour
                 other.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
                 
                 //Sets placement of the grabbed building to the location chosen, height is determined by dividing
-                //building scale by 2, the "+ 6" can be changed to whatever the height of the podium is
+                //building scale by 2, heightDif is the height of the selection circle
                 other.transform.position = new Vector3(objectPlacement.position.x,
                     (other.transform.lossyScale.y/2) + heightDif, objectPlacement.position.z);
-                
-                //To test if it works, can be removed later
+
+                other.transform.rotation = new Quaternion(0, 0, 0, 0);
                 
                 //Calls function from the LifeCapacity script to increase max capacity by 50
                 lifeCapacity.IncreaseCapacity();
