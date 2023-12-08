@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7156aa81a0100b5459b94a2c0d8749fb, type: 3}
   m_Name: ScenedataSO
   m_EditorClassIdentifier: 
-  sceneSelect: 0
+  sceneSelect: 1
   sceneCount: 2
-  currentPop: 46
+  currentPop: 0
