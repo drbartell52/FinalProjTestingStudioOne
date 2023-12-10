@@ -45,6 +45,8 @@ public class SnapPlacement : MonoBehaviour
                 lifeCapacity.IncreaseCapacity();
 
                 other.GetComponent<UxrGrabbableObject>().enabled = !other.GetComponent<UxrGrabbableObject>().enabled;
+                
+                Destroy(this);
             }  
         //}
         
