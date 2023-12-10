@@ -39,7 +39,7 @@ public class SnapPlacement : MonoBehaviour
                 other.transform.position = new Vector3(objectPlacement.position.x,
                     (other.transform.lossyScale.y/2) + heightDif, objectPlacement.position.z);
 
-                other.transform.rotation = new Quaternion(0, 0, 0, 0);
+                other.transform.rotation = new Quaternion(-90, 0, 0, 0);
                 
                 //Calls function from the LifeCapacity script to increase max capacity by 50
                 lifeCapacity.IncreaseCapacity();
