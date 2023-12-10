@@ -25,6 +25,8 @@ public class LifeCapacity : MonoBehaviour
 
     public AudioSource alarmSound;
 
+    private bool alarm = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -64,9 +66,11 @@ public class LifeCapacity : MonoBehaviour
             }
         }
 
-        if (currentPop <= 10)
+        if (currentPop <= 10 && alarm == false)
         {
-            alarmSound.Play();
+         StartCoroutine( PlaySound());
+
+         alarm = true;
         }
 
         ScenedataSO.currentPop = currentPop;
@@ -82,7 +86,14 @@ public class LifeCapacity : MonoBehaviour
             
         }
     }
-    
+
+    IEnumerator PlaySound()
+    {
+       
+        alarmSound.Play();
+        new WaitForSeconds(4.5f);
+        yield return new WaitForSeconds(4.5f);
+    }
     private void GrowingPop()
     {
         if (countdown <= 0)
