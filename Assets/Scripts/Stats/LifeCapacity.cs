@@ -23,6 +23,8 @@ public class LifeCapacity : MonoBehaviour
 
     public MartianPooler _mp;
 
+    public AudioSource alarmSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -60,6 +62,11 @@ public class LifeCapacity : MonoBehaviour
                     counter += 1;
                 }
             }
+        }
+
+        if (currentPop <= 10)
+        {
+            alarmSound.Play();
         }
 
         ScenedataSO.currentPop = currentPop;
