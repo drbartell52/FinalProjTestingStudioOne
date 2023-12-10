@@ -25,8 +25,8 @@ public class SnapPlacement : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         //Jump should/will be changed to input on Oculus controller
-        if (Input.GetButtonDown("Jump"))
-        {
+        //if (Input.GetButtonDown("Jump"))
+        //{
             //Add tag "Building" To the grabbable building objects
             if (other.CompareTag("Building"))
             {
@@ -45,7 +45,7 @@ public class SnapPlacement : MonoBehaviour
 
                 other.GetComponent<UxrGrabbableObject>().enabled = !other.GetComponent<UxrGrabbableObject>().enabled;
             }  
-        }
+        //}
         
         wasPressed = UxrAvatar.LocalAvatarInput.GetButtonsPressDown(UxrHandSide.Right, UxrInputButtons.Back);
     }
