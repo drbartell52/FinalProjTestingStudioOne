@@ -16,7 +16,10 @@ public class LifeCapacity : MonoBehaviour
 
     //Counter to determine interval between growth or decline
     [SerializeField]
-    private float counter = 1f;
+    private float countdown = 1f;
+
+    [SerializeField] 
+    private int counter = 0;
 
     public MartianPooler _mp;
 
@@ -30,7 +33,7 @@ public class LifeCapacity : MonoBehaviour
     void Update()
     {
         //Counter counts down
-        counter -= Time.deltaTime;
+        countdown -= Time.deltaTime;
         
         //Start of game, when there is 0 capacity, the population will count down by one every 5 seconds
         if (currentPop > maxCapacity)
@@ -48,11 +51,13 @@ public class LifeCapacity : MonoBehaviour
         {
             GrowingPop();
             
-            if (Mathf.Approximately(currentPop % 10f, 0f))
+            if (Mathf.Approximately(currentPop % 5f, 0f))
             {
-                if (counter == 1)
+                if (countdown == 1)
                 {
-                    _mp.MakeAmntAvailable(0);
+                    _mp.MakeAmntAvailable(counter);
+
+                    counter += 1;
                 }
             }
         }
@@ -62,22 +67,22 @@ public class LifeCapacity : MonoBehaviour
 
     private void DyingPop()
     {
-        if (counter <= 0)
+        if (countdown <= 0)
         {
             currentPop -= 1;
 
-            counter = 1;
+            countdown = 1;
             
         }
     }
     
     private void GrowingPop()
     {
-        if (counter <= 0)
+        if (countdown <= 0)
         {
             currentPop += 1;
 
-            counter = 1;
+            countdown = 1;
         }
     }
 
