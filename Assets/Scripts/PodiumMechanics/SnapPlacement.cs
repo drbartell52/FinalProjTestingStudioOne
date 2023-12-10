@@ -1,6 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UltimateXR.Avatar;
+using UltimateXR.Core;
+using UltimateXR.Devices;
+using UltimateXR.Manipulation;
 using UnityEngine;
 
 public class SnapPlacement : MonoBehaviour
@@ -15,12 +19,14 @@ public class SnapPlacement : MonoBehaviour
     //Assign other object with life capacity script to this in editor (one-way dependency)
     public LifeCapacity lifeCapacity;
 
+    [SerializeField]
+    private bool wasPressed = false;
+
     private void OnTriggerStay(Collider other)
     {
-        
         //Jump should/will be changed to input on Oculus controller
-        // if (Input.GetButtonDown("Jump"))
-        // {
+        if (Input.GetButtonDown("Jump"))
+        {
             //Add tag "Building" To the grabbable building objects
             if (other.CompareTag("Building"))
             {
@@ -36,8 +42,12 @@ public class SnapPlacement : MonoBehaviour
                 
                 //Calls function from the LifeCapacity script to increase max capacity by 50
                 lifeCapacity.IncreaseCapacity();
+
+                other.GetComponent<UxrGrabbableObject>().enabled = !other.GetComponent<UxrGrabbableObject>().enabled;
             }  
-        // }
+        }
+        
+        wasPressed = UxrAvatar.LocalAvatarInput.GetButtonsPressDown(UxrHandSide.Right, UxrInputButtons.Back);
     }
 
     private void Start()
