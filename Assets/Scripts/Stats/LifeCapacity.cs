@@ -16,7 +16,7 @@ public class LifeCapacity : MonoBehaviour
 
     //Counter to determine interval between growth or decline
     [SerializeField]
-    private float counter = 5f;
+    private float counter = 1f;
 
     public MartianPooler _mp;
 
@@ -37,7 +37,7 @@ public class LifeCapacity : MonoBehaviour
         {
             DyingPop();
             
-            if (Mathf.Approximately(currentPop % 10f, 0f))
+            if (Mathf.Approximately(currentPop % 5f, 0f))
             {
                 _mp.MakeAmntUnavailable(0);
             }
@@ -50,7 +50,7 @@ public class LifeCapacity : MonoBehaviour
             
             if (Mathf.Approximately(currentPop % 10f, 0f))
             {
-                if (counter == 5)
+                if (counter == 1)
                 {
                     _mp.MakeAmntAvailable(0);
                 }
@@ -66,7 +66,7 @@ public class LifeCapacity : MonoBehaviour
         {
             currentPop -= 1;
 
-            counter = 5;
+            counter = 1;
             
         }
     }
@@ -77,7 +77,7 @@ public class LifeCapacity : MonoBehaviour
         {
             currentPop += 1;
 
-            counter = 5;
+            counter = 1;
         }
     }
 
