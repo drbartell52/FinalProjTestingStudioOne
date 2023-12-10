@@ -18,10 +18,12 @@ public class LifeCapacity : MonoBehaviour
     [SerializeField]
     private float counter = 5f;
 
+    public MartianPooler _mp;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        _mp.MakeAmntAvailable(4);
     }
 
     // Update is called once per frame
@@ -34,12 +36,25 @@ public class LifeCapacity : MonoBehaviour
         if (currentPop > maxCapacity)
         {
             DyingPop();
+            
+            if (Mathf.Approximately(currentPop % 10f, 0f))
+            {
+                _mp.MakeAmntUnavailable(0);
+            }
         }
         
         //Once building is placed, population grows at the same interval until it reaches max capacity
         else if (currentPop <= maxCapacity)
         {
             GrowingPop();
+            
+            if (Mathf.Approximately(currentPop % 10f, 0f))
+            {
+                if (counter == 5)
+                {
+                    _mp.MakeAmntAvailable(0);
+                }
+            }
         }
 
         ScenedataSO.currentPop = currentPop;
